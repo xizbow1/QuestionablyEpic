@@ -97,7 +97,7 @@ export function getEffectValue(effect, player, contentType, itemLevel = 0, userS
     }
   }
 
-
+  //console.log("Effect: " + effectName + ": " + JSON.stringify(bonus_stats));
   return bonus_stats;
 }
 

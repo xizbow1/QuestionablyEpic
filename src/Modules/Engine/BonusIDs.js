@@ -30486,7 +30486,7 @@ export const bonus_IDs = {
       },
       "quality": 5,
       "name_override": {
-        "base": "Spiritwalker's Tidal Legguards",
+        "base": "Spiritwalker's Tidal Totem",
         "slots": {
           "back": "Cloak of the Tidal Spiritwalker"
         }
