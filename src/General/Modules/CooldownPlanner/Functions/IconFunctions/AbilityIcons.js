@@ -48,283 +48,294 @@ import BlessingOfProtection from "Images/Classes/Paladin/Specialisation/Holy/Ico
 import BlessingOfFreedom from "Images/Classes/Paladin/Specialisation/Holy/Icons/spell_holy_sealofvalor.jpg";
 import LayOnHands from "Images/Classes/Paladin/Specialisation/Holy/Icons/spell_holy_layonhands.jpg";
 import TigersLust from "Images/Classes/Monk/Specialisation/Mistweaver/Icons/ability_monk_tigerslust.jpg";
+import Typography from "@material-ui/core/Typography";
+import Tooltip from "@material-ui/core/Tooltip";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
+import { classAbilityDB } from "Databases/ClassAbilityDB";
 
-// Should probably work this off GUID
+const LightTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: "#525252",
+    // color: "rgba(0, 0, 0, 0.87)",
+    boxShadow: theme.shadows[2],
+    fontSize: 11,
+  },
+}))(Tooltip);
 
-export default function abilityIcons(props, style) {
+export default function AbilityIcons(props) {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+  const ID = props.abilityID;
+  const style = props.style;
+  const localizedName = classAbilityDB
+    .filter((obj) => {
+      return obj.id === ID;
+    })
+    .map((obj) => obj.name[currentLanguage])
+    .toString();
+  const localizedCooldownText = classAbilityDB
+    .filter((obj) => {
+      return obj.id === ID;
+    })
+    .map((obj) => obj.cooldownText[currentLanguage])
+    .toString();
+  const localizedEffect = classAbilityDB
+    .filter((obj) => {
+      return obj.id === ID;
+    })
+    .map((obj) => obj.effectText[currentLanguage])
+    .toString();
+
   let spell = "";
   let source = "";
   let alt = "";
 
   // Holy Paladin
   // Paladin Base Abilities
-  if (props === 31821) {
+  if (ID === 31821) {
     spell = "spell=31821";
     source = AuraMasteryIcon;
     alt = "Aura Mastery";
-  }
-  if (props === 31884) {
+  } else if (ID === 31884) {
     spell = "spell=31884";
     source = AvengingWrathIcon;
     alt = "Avenging Wrath";
   }
   // Paladin Covenant Cooldowns
-  if (props === 304971) {
+  else if (ID === 304971) {
     spell = "spell=304971";
     source = DivineTollIcon;
     alt = "Divine Toll";
-  }
-  if (props === 316958) {
+  } else if (ID === 316958) {
     spell = "spell=316958";
     source = AshenHallowIcon;
     alt = "Ashen Hallow";
-  }
-  if (props === 328204) {
+  } else if (ID === 328204) {
     spell = "spell=328204";
     source = VanquishersHammerIcon;
     alt = "Vanquisher's Hammer";
-  }
-  if (props === 328278) {
+  } else if (ID === 328278) {
     spell = "spell=328278";
     source = BlessingOfSeasonsIcon;
     alt = "Blessing of the Seasons";
   }
   // Restoration Druid
-  if (props === 740) {
+  else if (ID === 740) {
     spell = "spell=740";
     source = TranquilityIcon;
     alt = "Tranquility";
-  }
-  if (props === 33891) {
+  } else if (ID === 33891) {
     spell = "spell=33891";
     source = TreeofLifeIcon;
     alt = "Incarnation: Tree of Life";
-  }
-  if (props === 197721) {
+  } else if (ID === 197721) {
     spell = "spell=197721";
     source = FlourishIcon;
     alt = "Flourish";
   }
   // Druid Covenant Cooldowns
-  if (props === 326434) {
+  else if (ID === 326434) {
     spell = "spell=326434";
     source = KindredSpiritsIcon;
     alt = "Kindred Spirits";
-  }
-  if (props === 323546) {
+  } else if (ID === 323546) {
     spell = "spell=323546";
     source = RavenousFrenzyIcon;
     alt = "Ravenous Frenzy";
-  }
-  if (props === 325727) {
+  } else if (ID === 325727) {
     spell = "spell=325727";
     source = AdaptiveSwarmIcon;
     alt = "Adaptive Swarm";
-  }
-  if (props === 323764) {
+  } else if (ID === 323764) {
     spell = "spell=323764";
     source = ConvokeTheSpiritsIcon;
     alt = "Convoke the Spirits";
   }
   // Holy Priest
-  if (props === 265202) {
+  else if (ID === 265202) {
     spell = "spell=265202";
     source = SalvationIcon;
     alt = "Holy Word: Salvation";
-  }
-  if (props === 64843) {
+  } else if (ID === 64843) {
     spell = "spell=64843";
     source = DivineHymnIcon;
     alt = "Divine Hymn";
-  }
-
-  if (props === 47788) {
+  } else if (ID === 47788) {
     spell = "spell=47788";
     source = GuardianSpiritIcon;
     alt = "Guardian Spirit";
   }
 
   // Discipline Priest
-  if (props === 62618) {
+  else if (ID === 62618) {
     spell = "spell=62618";
     source = PowerWordBarrierIcon;
     alt = "Power Word: Barrier";
-  }
-  if (props === 246287) {
+  } else if (ID === 246287) {
     spell = "spell=246287";
     source = EvangelismIcon;
     alt = "Evangelism";
-  }
-  if (props === 109964) {
+  } else if (ID === 109964) {
     spell = "spell=109964";
     source = SpiritShellIcon;
     alt = "Spirit Shell";
-  }
-  if (props === 47536) {
+  } else if (ID === 47536) {
     spell = "spell=47536";
     source = RaptureIcon;
     alt = "Rapture";
-  }
-  if (props === 33206) {
+  } else if (ID === 33206) {
     spell = "spell=33206";
     source = PainSupression;
     alt = "Pain Supression";
   }
   // Priest Covenant Abilities
-  if (props === 325013) {
+  else if (ID === 325013) {
     spell = "spell=325013";
     source = BoonoftheAscendedIcon;
     alt = "Boon of the Ascended";
-  }
-  if (props === 323673) {
+  } else if (ID === 323673) {
     spell = "spell=323673";
     source = MindgamesIcon;
     alt = "Mindgames";
-  }
-  if (props === 324724) {
+  } else if (ID === 324724) {
     spell = "spell=324724";
     source = UnholyNovaIcon;
     alt = "Unholy Nova";
-  }
-  if (props === 327661) {
+  } else if (ID === 327661) {
     spell = "spell=327661";
     source = FaeBlessingsIcon;
     alt = "Fae Blessings";
   }
   // Restoration Shaman
-  if (props === 108280) {
+  else if (ID === 108280) {
     spell = "spell=108280";
     source = HealingTideTotemIcon;
     alt = "Healing Tide Totem";
-  }
-  if (props === 98008) {
+  } else if (ID === 98008) {
     spell = "spell=98008";
     source = SpiritLinkTotemIcon;
     alt = "Spirit Link Totem";
-  }
-
-  if (props === 207399) {
+  } else if (ID === 207399) {
     spell = "spell=207399";
     source = AncestralProtectionIcon;
     alt = "Ancestral Protection Totem";
   }
 
   // Shaman Covenant Abilities
-  if (props === 324386) {
+  else if (ID === 324386) {
     spell = "spell=324386";
     source = VesperTotemIcon;
     alt = "Vesper Totem";
-  }
-  if (props === 320674) {
+  } else if (ID === 320674) {
     spell = "spell=320674";
     source = ChainHarvestIcon;
     alt = "Chain Harvest";
-  }
-  if (props === 326059) {
+  } else if (ID === 326059) {
     spell = "spell=326059";
     source = PrimordialWaveIcon;
     alt = "Primordial Wave";
-  }
-  if (props === 328923) {
+  } else if (ID === 328923) {
     spell = "spell=328923";
     source = FaeTransfusionIcon;
     alt = "Fae Transfusion";
   }
   // Mistweaver Monk
-  if (props === 115310) {
+  else if (ID === 115310) {
     spell = "spell=115310";
     source = RevivalIcon;
     alt = "Revival";
   }
   // Monk Covenant Abilities
-  if (props === 310454) {
+  else if (ID === 310454) {
     spell = "spell=310454";
     source = WeaponsofOrderIcon;
     alt = "Weapons of Order";
-  }
-  if (props === 326860) {
+  } else if (ID === 326860) {
     spell = "spell=326860";
     source = FallenOrderIcon;
     alt = "Fallen Order";
-  }
-  if (props === 325216) {
+  } else if (ID === 325216) {
     spell = "spell=325216";
     source = BonedustBrewIcon;
     alt = "Bonedust Brew";
-  }
-  if (props === 327104) {
+  } else if (ID === 327104) {
     spell = "spell=327104";
     source = FaelineStompIcon;
     alt = "Faeline Stomp";
-  }
-  if (props === 196718) {
+  } else if (ID === 196718) {
     spell = "spell=196718";
     source = DarknessIcon;
     alt = "Darkness";
-  }
-  if (props === 97462) {
+  } else if (ID === 97462) {
     spell = "spell=97462";
     source = RallyingCryIcon;
     alt = "Rallying Cry";
-  }
-  if (props === 15286) {
+  } else if (ID === 15286) {
     spell = "spell=15286";
     source = VampiricEmbraceIcon;
     alt = "Vampiric Embrace";
-  }
-  if (props === 51052) {
+  } else if (ID === 51052) {
     spell = "spell=51052";
     source = AntiMagicZoneIcon;
     alt = "Anti Magic Zone";
-  }
-  if (props === 10060) {
+  } else if (ID === 10060) {
     spell = "spell=10060";
     source = PowerInfusionIcon;
     alt = "Power Infusion";
-  }
-  if (props === 102342) {
+  } else if (ID === 102342) {
     spell = "spell=102342";
     source = IronbarkIcon;
     alt = "Ironbark";
-  }
-  if (props === 6940) {
+  } else if (ID === 6940) {
     spell = "spell=6940";
     source = BlessingOfSacrificeIcon;
     alt = "Blessing of Sacrifice";
-  }
-  if (props === 116849) {
+  } else if (ID === 116849) {
     spell = "spell=116849";
     source = LifeCocoonIcon;
     alt = "Blessing of Sacrifice";
-  }
-  if (props === 1022) {
+  } else if (ID === 1022) {
     spell = "spell=1022";
     source = BlessingOfProtection;
     alt = "Blessing of Protection";
-  }
-  if (props === 1044) {
+  } else if (ID === 1044) {
     spell = "spell=1044";
     source = BlessingOfFreedom;
     alt = "Blessing of Freedom";
-  }
-  if (props === 633) {
+  } else if (ID === 633) {
     spell = "spell=633";
     source = LayOnHands;
     alt = "Lay on Hands";
-  }
-  if (props === 116841) {
+  } else if (ID === 116841) {
     spell = "spell=116841";
     source = TigersLust;
     alt = "Tiger's Lust";
-  }
-
-  if (props === "" || props === undefined) {
+  } else if (ID === "" || ID === undefined) {
     return null;
   }
 
   return (
-    <a data-wowhead={spell}>
+    // <a data-wowhead={spell}>
+    <LightTooltip
+      title={
+        <React.Fragment>
+          <div style={{ display: "inline-flex" }}>
+            <img style={{ ...style }} src={source} alt={alt} />
+            <div>
+              <Typography color="inherit">{localizedName}</Typography>
+              <em>{localizedCooldownText}</em>
+            </div>
+          </div>
+
+          <br />
+          <em>{localizedEffect}</em>
+          {/* <b>{"some"}</b> <u>{"amazing content"}</u>. {"It's very engaging. Right?"} */}
+        </React.Fragment>
+      }
+    >
       <img style={{ ...style }} src={source} alt={alt} />
-    </a>
+    </LightTooltip>
+    // </a>
   );
 }

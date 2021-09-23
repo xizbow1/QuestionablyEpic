@@ -14,7 +14,7 @@ import { localizationFR } from "locale/fr/TableLocale";
 import { localizationEN } from "locale/en/TableLocale";
 import { localizationRU } from "locale/ru/TableLocale";
 import { localizationCH } from "locale/ch/TableLocale";
-import abilityIcons from "../Functions/IconFunctions/AbilityIcons";
+import AbilityIcons from "../Functions/IconFunctions/AbilityIcons";
 import bossIcons from "../Functions/IconFunctions/BossIcons";
 import bossAbilityIcons from "../Functions/IconFunctions/BossAbilityIcons";
 import classIcons from "../Functions/IconFunctions/ClassIcons";
@@ -524,14 +524,17 @@ export default function CooldownPlanner(props) {
       render: (rowData) => (
         <div style={{ minminWidth: 105, display: "inline-flex", alignItems: "center", width: "100%" }}>
           <div>
-            {abilityIcons(rowData.Cooldown, {
-              height: 30,
-              width: 30,
-              margin: "0px 4px 0px 0px",
-              verticalAlign: "middle",
-              border: "1px solid #595959",
-              borderRadius: 4,
-            })}
+            <AbilityIcons
+              abilityID={rowData.Cooldown}
+              style={{
+                height: 30,
+                width: 30,
+                margin: "0px 4px 0px 0px",
+                verticalAlign: "middle",
+                border: "1px solid #595959",
+                borderRadius: 4,
+              }}
+            />
           </div>
           <Typography align="center" style={{ fontSize: 12, lineHeight: "normal", width: "100%" }}>
             {t("CooldownPlanner.ClassAbilities." + rowData.Cooldown)}
@@ -730,14 +733,17 @@ export default function CooldownPlanner(props) {
       render: (rowData) => (
         <div style={{ minminWidth: 105, display: "inline-flex", alignItems: "center", width: "100%" }}>
           <div>
-            {abilityIcons(rowData.Cooldown1, {
-              height: 30,
-              width: 30,
-              margin: "0px 4px 0px 0px",
-              verticalAlign: "middle",
-              border: "1px solid #595959",
-              borderRadius: 4,
-            })}
+          <AbilityIcons
+              abilityID={rowData.Cooldown1}
+              style={{
+                height: 30,
+                width: 30,
+                margin: "0px 4px 0px 0px",
+                verticalAlign: "middle",
+                border: "1px solid #595959",
+                borderRadius: 4,
+              }}
+            />
           </div>
           <Typography align="center" style={{ fontSize: 12, lineHeight: "normal", width: "100%" }}>
             {t("CooldownPlanner.ClassAbilities." + rowData.Cooldown1)}
@@ -932,14 +938,17 @@ export default function CooldownPlanner(props) {
       render: (rowData) => (
         <div style={{ minminWidth: 105, display: "inline-flex", alignItems: "center", width: "100%" }}>
           <div>
-            {abilityIcons(rowData.Cooldown2, {
-              height: 30,
-              width: 30,
-              margin: "0px 4px 0px 0px",
-              verticalAlign: "middle",
-              border: "1px solid #595959",
-              borderRadius: 4,
-            })}
+          <AbilityIcons
+              abilityID={rowData.Cooldown2}
+              style={{
+                height: 30,
+                width: 30,
+                margin: "0px 4px 0px 0px",
+                verticalAlign: "middle",
+                border: "1px solid #595959",
+                borderRadius: 4,
+              }}
+            />
           </div>
           <Typography align="center" style={{ fontSize: 12, lineHeight: "normal", width: "100%" }}>
             {t("CooldownPlanner.ClassAbilities." + rowData.Cooldown2)}
@@ -1133,14 +1142,17 @@ export default function CooldownPlanner(props) {
       render: (rowData) => (
         <div style={{ minminWidth: 105, display: "inline-flex", alignItems: "center", width: "100%" }}>
           <div>
-            {abilityIcons(rowData.Cooldown3, {
-              height: 30,
-              width: 30,
-              margin: "0px 4px 0px 0px",
-              verticalAlign: "middle",
-              border: "1px solid #595959",
-              borderRadius: 4,
-            })}
+          <AbilityIcons
+              abilityID={rowData.Cooldown3}
+              style={{
+                height: 30,
+                width: 30,
+                margin: "0px 4px 0px 0px",
+                verticalAlign: "middle",
+                border: "1px solid #595959",
+                borderRadius: 4,
+              }}
+            />
           </div>
           <Typography align="center" style={{ fontSize: 12, lineHeight: "normal", width: "100%" }}>
             {t("CooldownPlanner.ClassAbilities." + rowData.Cooldown3)}
@@ -1336,14 +1348,17 @@ export default function CooldownPlanner(props) {
       render: (rowData) => (
         <div style={{ minminWidth: 105, display: "inline-flex", alignItems: "center", width: "100%" }}>
           <div>
-            {abilityIcons(rowData.Cooldown4, {
-              height: 30,
-              width: 30,
-              margin: "0px 4px 0px 0px",
-              verticalAlign: "middle",
-              border: "1px solid #595959",
-              borderRadius: 4,
-            })}
+          <AbilityIcons
+              abilityID={rowData.Cooldown4}
+              style={{
+                height: 30,
+                width: 30,
+                margin: "0px 4px 0px 0px",
+                verticalAlign: "middle",
+                border: "1px solid #595959",
+                borderRadius: 4,
+              }}
+            />
           </div>
           <Typography align="center" style={{ fontSize: 12, lineHeight: "normal", width: "100%" }}>
             {t("CooldownPlanner.ClassAbilities." + rowData.Cooldown4)}
