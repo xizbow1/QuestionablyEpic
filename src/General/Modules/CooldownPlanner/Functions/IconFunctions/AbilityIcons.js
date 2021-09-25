@@ -1,4 +1,5 @@
 import React from "react";
+import { Divider, Typography, Tooltip } from "@material-ui/core";
 import AuraMasteryIcon from "Images/Classes/Paladin/Specialisation/Holy/Icons/AuraMastery.jpg";
 import AvengingWrathIcon from "Images/Classes/Paladin/Specialisation/Holy/Icons/AvengingWrath.jpg";
 import DivineHymnIcon from "Images/Classes/Priest/Specialisation/Holy/Icons/DivineHymn.jpg";
@@ -48,8 +49,6 @@ import BlessingOfProtection from "Images/Classes/Paladin/Specialisation/Holy/Ico
 import BlessingOfFreedom from "Images/Classes/Paladin/Specialisation/Holy/Icons/spell_holy_sealofvalor.jpg";
 import LayOnHands from "Images/Classes/Paladin/Specialisation/Holy/Icons/spell_holy_layonhands.jpg";
 import TigersLust from "Images/Classes/Monk/Specialisation/Mistweaver/Icons/ability_monk_tigerslust.jpg";
-import Typography from "@material-ui/core/Typography";
-import Tooltip from "@material-ui/core/Tooltip";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 import { classAbilityDB } from "Databases/ClassAbilityDB";
@@ -101,6 +100,18 @@ export default function AbilityIcons(props) {
     spell = "spell=31884";
     source = AvengingWrathIcon;
     alt = "Avenging Wrath";
+  } else if (ID === 1022) {
+    spell = "spell=1022";
+    source = BlessingOfProtection;
+    alt = "Blessing of Protection";
+  } else if (ID === 1044) {
+    spell = "spell=1044";
+    source = BlessingOfFreedom;
+    alt = "Blessing of Freedom";
+  } else if (ID === 633) {
+    spell = "spell=633";
+    source = LayOnHands;
+    alt = "Lay on Hands";
   }
   // Paladin Covenant Cooldowns
   else if (ID === 304971) {
@@ -295,18 +306,6 @@ export default function AbilityIcons(props) {
     spell = "spell=116849";
     source = LifeCocoonIcon;
     alt = "Blessing of Sacrifice";
-  } else if (ID === 1022) {
-    spell = "spell=1022";
-    source = BlessingOfProtection;
-    alt = "Blessing of Protection";
-  } else if (ID === 1044) {
-    spell = "spell=1044";
-    source = BlessingOfFreedom;
-    alt = "Blessing of Freedom";
-  } else if (ID === 633) {
-    spell = "spell=633";
-    source = LayOnHands;
-    alt = "Lay on Hands";
   } else if (ID === 116841) {
     spell = "spell=116841";
     source = TigersLust;
@@ -320,16 +319,15 @@ export default function AbilityIcons(props) {
     <LightTooltip
       title={
         <React.Fragment>
-          <div style={{ display: "inline-flex" }}>
+          <div style={{ display: "inline-flex", padding: 4 }}>
             <img style={{ ...style }} src={source} alt={alt} />
             <div>
               <Typography color="inherit">{localizedName}</Typography>
-              <em>{localizedCooldownText}</em>
+              <div style={{ marginTop: -4 }}>{localizedCooldownText}</div>
             </div>
           </div>
-
-          <br />
-          <em>{localizedEffect}</em>
+          <Divider />
+          <div style={{ marginTop: 4 }}>{localizedEffect}</div>
           {/* <b>{"some"}</b> <u>{"amazing content"}</u>. {"It's very engaging. Right?"} */}
         </React.Fragment>
       }
