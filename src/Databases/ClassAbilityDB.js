@@ -283,11 +283,11 @@ export const classAbilityDB = [
 
   {
     id: 328278,
-    icon: "",
-    duration: "",
-    cooldown: "",
+    icon: "ability_ardenweald_paladin_autumn",
+    duration: 30,
+    cooldown: 45,
     name: {
-      en: "",
+      en: "Blessing of the Seasons",
       de: "",
       fr: "",
       ru: "",
@@ -311,57 +311,65 @@ export const classAbilityDB = [
 
   {
     id: 740,
-    icon: "",
-    duration: "",
-    cooldown: "",
+    icon: "spell_nature_tranquility",
+    duration: 8,
+    cooldown: 180,
     name: {
-      en: "",
-      de: "",
-      fr: "",
-      ru: "",
-      ch: "",
+      en: "Tranquility",
+      de: "Gelassenheit",
+      fr: "Tranquillité",
+      ru: "Спокойствие",
+      ch: "宁静",
     },
     cooldownText: {
-      en: "",
-      de: "",
-      fr: "",
-      ru: "",
-      ch: "",
+      en: "3 min cooldown",
+      de: "3 min Abklingzeit",
+      fr: "3 min de recharge",
+      ru: "Восстановление: 3 мин",
+      ch: "3​分钟 冷却",
     },
     effectText: {
-      en: "",
-      de: "",
-      fr: "",
-      ru: "",
-      ch: "",
+      en:
+        "Heals all allies within 40 yards for [(59% of Spell power) * 5] over 8 sec. Each heal heals the target for another (6.88% of Spell power) over 8 sec, stacking. Healing increased by 100% when not in a raid.",
+      de:
+        "Heilt alle Verbündeten innerhalb von 40 Metern im Verlauf von 8 sec um [(59% of Spell power) * 5] Gesundheit. Jede Heilung heilt das Ziel zusätzlich im Verlauf von 8 sec um (6.88% of Spell power) Gesundheit. Dieser Effekt ist stapelbar. Die Heilung ist außerhalb eines Schlachtzugs um 100% erhöht.",
+      fr:
+        "Rend [(59% of Spell power) * 5] points de vie aux alliés à moins de 40 m en 8 sec. Tous les soins prodigués à la cible lui rendent aussi (6.88% of Spell power) points de vie en 8 sec. Effet cumulable. Soins augmentés de 100% si vous ne faites pas partie d’un raid.",
+      ru:
+        "Восполняет [(59% of Spell power) * 5] ед. здоровья за 8 sec союзникам в радиусе 40 м. Каждое исцеление восполняет цели еще (6.88% of Spell power) ед. здоровья за 8 sec. Эффект суммируется. Вне рейда исцеление усиливается на 100%.",
+      ch: "在8 sec内为40码范围内的所有盟友恢复[(59% of Spell power) * 5]点生命值。每次治疗可为目标额外在8 sec内恢复(6.88% of Spell power)点生命值。此效果可叠加。 当你不在团队时，该治疗效果提高100%。",
     },
   },
 
   {
     id: 33891,
-    icon: "",
-    duration: "",
-    cooldown: "",
+    icon: "ability_druid_improvedtreeform",
+    duration: 30,
+    cooldown: 180,
     name: {
-      en: "",
-      de: "",
-      fr: "",
-      ru: "",
-      ch: "",
+      en: "Incarnation: Tree of Life",
+      de: "Inkarnation: Baum des Lebens",
+      fr: "Incarnation : Arbre de vie",
+      ru: "Воплощение: древо жизни",
+      ch: "化身：生命之树",
     },
     cooldownText: {
-      en: "",
-      de: "",
-      fr: "",
-      ru: "",
-      ch: "",
+      en: "3 min cooldown",
+      de: "3 min Abklingzeit",
+      fr: "3 min de recharge",
+      ru: "Восстановление: 3 мин",
+      ch: "3​分钟 冷却",
     },
     effectText: {
-      en: "",
-      de: "",
-      fr: "",
-      ru: "",
-      ch: "",
+      en:
+        "Shapeshift into the Tree of Life, increasing healing done by 15%, increasing armor by 120%, and granting protection from Polymorph effects.  Functionality of Rejuvenation, Wild Growth, Regrowth, and Entangling Roots is enhanced. Lasts 30 sec. You may shapeshift in and out of this form for its duration.",
+      de:
+        "Verwandelt Euch in die Gestalt eines Baums des Lebens, wodurch Eure gewirkte Heilung um 15% und Eure Rüstung um 120% erhöht wird. Schützt Euch außerdem vor Verwandlungseffekten. Die Funktionalität Eurer Zauber 'Verjüngung', 'Wildwuchs', 'Nachwachsen' und 'Wucherwurzeln' wird verstärkt. Hält 30 sec lang an. Ihr könnt Euch während der Effektdauer beliebig in diese Gestalt und zurück verwandeln.",
+      fr:
+        "Vous vous transformez en arbre de vie, ce qui augmente les soins prodigués de 15% et l’armure de 120%, et vous protège des effets de métamorphose. Augmente l’efficacité de Récupération, Croissance sauvage, Rétablissement et Sarments. Dure 30 sec. Vous pouvez librement adopter cette forme et la quitter pendant toute sa durée.",
+      ru:
+        "Вы превращаетесь в древо жизни. В этом облике эффективность исцеления увеличивается на 15%, а броня усиливается на 120%; также вы становитесь невосприимчивы к эффектам превращения. Кроме того, усиливаются ваши заклинания 'Омоложение', 'Буйный рост', 'Восстановление' и 'Гнев деревьев'. Время действия – 30 sec. Вы можете принимать или сбрасывать этот облик в течение всего времени действия эффекта.",
+      ch: "进入生命之树形态，治疗效果提高15%，护甲值提高120%，并免疫变形效果。得到强化的法术：回春术、野性成长、愈合和纠缠根须。 持续30 sec。你可以在持续期间在其他形态与生命之树之间切换。",
     },
   },
 

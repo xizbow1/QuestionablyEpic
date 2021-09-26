@@ -57,8 +57,9 @@ const LightTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: "#525252",
     // color: "rgba(0, 0, 0, 0.87)",
-    boxShadow: theme.shadows[2],
+    boxShadow: theme.shadows[4],
     fontSize: 11,
+    border: "1px solid #F2BF59",
   },
 }))(Tooltip);
 
@@ -321,7 +322,7 @@ export default function AbilityIcons(props) {
         <React.Fragment>
           <div style={{ display: "inline-flex", padding: 4 }}>
             <img style={{ ...style }} src={source} alt={alt} />
-            <div>
+            <div style={{ marginTop: -2 }}>
               <Typography color="inherit">{localizedName}</Typography>
               <div style={{ marginTop: -4 }}>{localizedCooldownText}</div>
             </div>
