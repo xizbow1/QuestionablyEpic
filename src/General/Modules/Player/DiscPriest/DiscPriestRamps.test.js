@@ -80,20 +80,21 @@ describe("Evang Cast Sequence", () => {
         stamina: 0,
 }
     
-    const boonSeq = buildRamp('Boon', 10, ["Instructor's Divine Bell"], activeStats.haste, "Kyrian Evangelism", ['Rapture'])
-    const fiendSeq = buildRamp('Fiend', 10, ["Instructor's Divine Bell"], activeStats.haste, "Kyrian Evangelism", ['Rapture'])
+    const boonSeq = buildRamp('Boon', 10, ["Instructor's Divine Bell"], activeStats.haste, "Kyrian Spirit Shell", ['Rapture'])
+    const fiendSeq = buildRamp('Fiend', 10, ["Instructor's Divine Bell"], activeStats.haste, "Kyrian Spirit Shell", ['Rapture'])
 
+    //console.log(boonSeq)
 
     test("Legendaries & Soulbinds", () => {
 
         const startTime = performance.now()
-        const baseline = allRamps(boonSeq, fiendSeq, activeStats, {"Clarity of Mind": false, "Pelagos": false}, {});
+        const baseline = allRamps(boonSeq, fiendSeq, activeStats, {"Clarity of Mind": true, "Pelagos": false}, {"Exaltation": 252});
 
         const endTime = performance.now()
-
+        
         console.log(`Call to doSomething took ${endTime - startTime} milliseconds`)
-        //console.log("Baseline: " + baseline);
-
+        console.log("Baseline: " + baseline);
+/*
         const clarityOfMind = allRamps(boonSeq, fiendSeq, activeStats, {"Clarity of Mind": true, "Pelagos": false}, {});
         const pelagos = allRamps(boonSeq, fiendSeq, activeStats, {"Clarity of Mind": false, "Pelagos": true}, {});
         const rabidShadows = allRamps(boonSeq, fiendSeq, activeStats, {"Clarity of Mind": false, "Pelagos": false}, {"Rabid Shadows": 226});
@@ -103,6 +104,9 @@ describe("Evang Cast Sequence", () => {
         expect(clarityOfMind - baseline).toBeGreaterThan(0);
         expect(pelagos - baseline).toBeGreaterThan(0);
         expect(rabidShadows - baseline).toBeGreaterThan(0);
+
+
+
         
         //const exaltation = allRamps(boonSeq, fiendSeq, player.activeStats, {"Clarity of Mind": false, "Pelagos": false}, {"Exaltation": 226});
         //const comExaltation = allRamps(boonSeq, fiendSeq, player.activeStats, {"Clarity of Mind": true, "Pelagos": false}, {"Exaltation": 226});
@@ -116,7 +120,7 @@ describe("Evang Cast Sequence", () => {
         //console.log("CoM + Exaltation: " + ((comExaltation - baseline) / 180))
         //console.log("Rabid Shadows: " + ((rabidShadows - baseline) / 180));
         //console.log("Cour Asc: " + ((courageousAscension - baseline) / 180));
-
+        */
     });
 });
 

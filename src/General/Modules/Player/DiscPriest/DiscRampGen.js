@@ -201,3 +201,62 @@ export const buildBoonEvangRamp = (applicators, trinket, haste, specialSpells = 
     return sequence;
     
 };
+
+/**
+ * Builds a Kyrian Boon & Spirit Shell ramp sequence. 
+ * 
+ * @param {*} applicators Number of single target atonement applicators. Default is 10 but configurable. 
+ * @param {*} trinkets The specific trinket you want to combine with your Boon ramp.
+ * @param {*} haste Your current haste level. This is for determining your Ascended Blast / Nova sequence. 
+ * @param {*} specialSpells Any special spells to combine with your ramp. Rapture is a common example.
+ * @returns Returns a sequence representing a Boon Evangelism ramp.
+ */
+ export const buildBoonShellRamp = (applicators, trinket, haste, specialSpells = []) => {
+    let sequence = ['Purge the Wicked', 'Shadow Mend'] // Without rapture, it is optimal to begin our ramp with Shadow Mend.
+    
+    if (trinket === "Shadowed Orb of Torment") sequence.push("Shadowed Orb");
+    for (var x = 0; x < applicators; x++) {
+        sequence.push('Power Word: Shield');
+    }
+    if (trinket === "Soulletting Ruby") sequence.push("Soulletting Ruby");
+    sequence.push('Power Word: Radiance');
+    sequence.push('Boon of the Ascended');
+    sequence.push('Spirit Shell');
+    sequence.push('Ascended Blast');
+    sequence.push('Power Word: Radiance');
+    sequence.push('Ascended Blast');
+    if (trinket === "Flame of Battle") sequence.push("Flame of Battle");
+    sequence.push('Schism');
+    const hastePerc = 1 + haste / 32 / 100;
+    let boonDuration = 10 - (1.5 * 2 / hastePerc) + (1.5 / hastePerc);
+    const boonPackage = (1.5 + 1 + 1) / hastePerc;
+
+    for (var i = 0; i < Math.floor(boonDuration / boonPackage); i++) {
+        sequence.push('Ascended Blast');
+        if (trinket === "Instructor's Divine Bell" && i === 0) sequence.push("Instructor's Divine Bell");
+        sequence.push('Ascended Nova');
+        sequence.push('Ascended Nova');
+    }
+
+    if (boonDuration % boonPackage > (2.5 / hastePerc)) {
+        sequence.push('Ascended Blast');
+        sequence.push('Ascended Nova');
+    }
+    else if (boonDuration % boonPackage > (2 / hastePerc)) {
+        sequence.push('Ascended Nova');
+        sequence.push('Ascended Nova');
+    }
+    else if (boonDuration % boonPackage > (1.5 / hastePerc)) {
+        sequence.push('Ascended Blast');
+    }
+    else if (boonDuration % boonPackage > (1 / hastePerc)) {
+        sequence.push('Ascended Nova');
+    }
+
+    // These are low value post-ramp smites but should still be included. The number of them is configurable but of low importance outside of DPS metrics.
+    for (var i = 0; i < 10; i++) {
+        sequence.push('Smite');
+    }
+    return sequence;
+    
+};

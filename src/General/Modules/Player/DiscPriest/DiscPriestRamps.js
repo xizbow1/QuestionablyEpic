@@ -180,7 +180,10 @@ const applyLoadoutEffects = (discSpells, settings, conduits) => {
     // -- Clarity of Mind --
     // Clarity of Mind adds 6 seconds to the Atonement granted by Power Word: Shield during Rapture. 
     // It's a straightfoward addition.
-    if (settings['Clarity of Mind']) discSpells['Rapture'][0].atonement = 21;
+    if (settings['Clarity of Mind']) {
+        discSpells['Rapture'][0].atonement = 21;
+        discSpells['Spirit Shell'][0].extension = 3;
+    }
 
     // -- Penitent One --
     // Power Word: Radiance has a chance to make your next Penance free, and fire 3 extra bolts.
@@ -222,8 +225,12 @@ const applyLoadoutEffects = (discSpells, settings, conduits) => {
     if (conduits['Shining Radiance']) discSpells['Power Word: Radiance'][0].coeff *= 1.64; // +64% radiance healing
     if (conduits['Rabid Shadows']) discSpells['Shadowfiend'][0].dot.tickRate = discSpells['Shadowfiend'][0].dot.tickRate / 1.342; // Fiends faster tick rate.
     if (conduits['Exaltation']) {
+        // It's fine to include both spell changes here since we'll only ever have one of the two spells.
         discSpells['Rapture'][1].buffDuration = 9;
         discSpells['Rapture'][0].coeff = 1.65 * (1 + 2 * 1.135);
+        discSpells['Spirit Shell'][1].buffDuration = 11;
+        discSpells['Spirit Shell'][1].multiplier = 0.8 * 1.09;
+
     }
     //
 

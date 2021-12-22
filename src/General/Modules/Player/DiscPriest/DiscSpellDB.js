@@ -148,6 +148,19 @@ export const DISCSPELLS = {
         secondaries: ['crit', 'vers'],
         overheal: 0,
     }],
+    "Shadow Mend": [{
+        type: "heal",
+        castTime: 1.5,
+        cost: 1550, // TODO
+        coeff: 1.65, // TODO
+        aura: 1,
+        cooldown: 0,
+        atonement: 15,
+        atonementPos: 'end',
+        targets: 1,
+        secondaries: ['crit', 'vers'],
+        overheal: 0,
+    }],
     "Rapture": [{
         type: "heal",
         castTime: 1.5,
@@ -216,6 +229,21 @@ export const DISCSPELLS = {
         coeff: 0,
         extension: 6,
     }],
+    "Spirit Shell": [{
+        type: "atonementExtension",
+        castTime: 0,
+        cost: 0,
+        coeff: 0,
+        extension: 0,
+        cooldown: 90,
+    },
+    {
+        type: "buff",
+        buffDuration: 10,
+        buffType: 'special',
+        multiplier: 0.8
+    }
+    ],
     "Instructor's Divine Bell": [{
         type: "buff",
         castTime: 0,
