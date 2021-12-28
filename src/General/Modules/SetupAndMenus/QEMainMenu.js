@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import CharCards from "./CharacterModules/CharacterCards";
 import AddNewChar from "./CharacterModules/CharacterCreator";
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import ReactGA from "react-ga";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import { Grid, Button, Typography, Tooltip } from "@mui/material";
@@ -16,10 +16,11 @@ import GameTypeSwitch from "./GameTypeToggle";
 import WelcomeDialog from "../Welcome/Welcome";
 import ls from "local-storage";
 import QEFooter from "./Footer/QEFooter";
+import DeepDive from "../DeepDive/DeepDive";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       margin: "auto",
       width: "85%",
       justifyContent: "center",
@@ -174,6 +175,8 @@ export default function QEMainMenu(props) {
             </Grid>
           ))}
         </Grid>
+
+        <DeepDive player={props.player} />
 
         <Typography variant="h5" align="center" style={{ padding: "25px 10px 5px 10px" }} color="primary">
           {t("MainMenu.CharHeader")}
