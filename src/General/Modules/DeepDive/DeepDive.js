@@ -33,8 +33,8 @@ export default function DeepDive(props) {
   const gameType = useSelector((state) => state.gameType);
   const [open, setOpen] = React.useState(false);
   const currentLanguage = i18n.language;
-  const item = props.item;
-  const translatedItemName = getTranslatedItemName(item.id, currentLanguage, "", gameType);
+  const item = props.item || "";
+  const translatedItemName = getTranslatedItemName(item.id, currentLanguage, "", gameType) || "";
 
   const fillItems = (slotName, spec) => {
     let newItemList = [];
@@ -51,7 +51,7 @@ export default function DeepDive(props) {
   const [itemLevel, setItemLevel] = useState("");
   const [inputValue, setInputValue] = useState(translatedItemName || "");
   const [itemDropdown, setItemDropdown] = useState(fillItems("", props.player.spec)); // Filled later based on item slot and armor type.
-  const itemQuality = item.getQualityColor();
+  const itemQuality = item === "" ? "" : item.getQualityColor();
 
   const [openAuto, setOpenAuto] = React.useState(false);
   const handleOpen = () => {
@@ -107,7 +107,7 @@ export default function DeepDive(props) {
                       borderRadius: 4,
                       borderWidth: "1px",
                       borderStyle: "solid",
-                        borderColor: itemQuality,
+                      borderColor: itemQuality,
                     }}
                   />
                 </a>
