@@ -346,11 +346,20 @@ export default function CharCards(props) {
     /* -------------------------------------------------------------------------- */
     <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
       <div style={{ position: "relative" }}>
-        <Tooltip title={t("Edit")}>
-          <IconButton style={{ position: "absolute", right: 5, top: 5, zIndex: 1 }} onClick={(e) => handleClickOpen(e)} aria-label="settings" size="small">
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
+        {gameType === "Retail" ? (
+          <Tooltip title={t("Edit")}>
+            <IconButton style={{ position: "absolute", right: 5, top: 5, zIndex: 1 }} onClick={(e) => handleClickOpen(e)} aria-label="settings" size="small">
+              <SettingsIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        ) : (
+          <Tooltip title={t("Delete")}>
+            <IconButton style={{ position: "absolute", right: 5, top: 5, zIndex: 1, color: "red" }} onClick={(e) => handleDelete(e)} aria-label="settings" size="small">
+              <ClearIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        )}
+
         <CardActionArea onClick={(e) => charClicked(props.char, props.cardType, props.allChars, props.charUpdate, e)} onContextMenu={gameType === "Retail" ? (e) => handleClickOpen(e) : null}>
           <Card className={rootClassName} variant="outlined">
             <Avatar src={props.char.charAvatarURL === "" ? specImages[props.char.spec].default : props.char.charAvatarURL} variant="square" alt="" className={classes.large} />
@@ -391,17 +400,6 @@ export default function CharCards(props) {
                     </Typography>
                   </Grid>
                   {/* ---- Settings Button - More apparent for users how to edit characters ---- */}
-                  {gameType === "Retail" ? (
-                    <Grid item xs={2} />
-                  ) : (
-                    <Grid item xs={2}>
-                      <Tooltip title={t("Delete")}>
-                        <IconButton style={{ float: "right", top: -4, color: "red" }} onClick={(e) => handleDelete(e)} aria-label="settings" size="small">
-                          <ClearIcon fontSize="small" />
-                        </IconButton>
-                      </Tooltip>
-                    </Grid>
-                  )}
                   <Grid item container spacing={0}>
                     <Grid item xs={12}>
                       <Divider />
@@ -413,11 +411,6 @@ export default function CharCards(props) {
                     </Grid>
                   </Grid>
                 </Grid>
-                {/* ------------------------------ Class & Icon ------------------------------ */}
-                {/* <Typography style={{ color: classColoursJS(spec), marginTop: 2 }}>
-                {t(classTranslator(spec))}
-                {classIcons(spec, { height: 16, width: 16, padding: "0px 5px 0px 5px", verticalAlign: "middle", borderRadius: 4 })}
-              </Typography>  */}
               </CardContent>
             </div>
           </Card>

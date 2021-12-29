@@ -15,7 +15,7 @@ const rows = [createData("Overheal", 159), createData("stat1", 237), createData(
 
 export default function DeepDiveTable() {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={0}>
       <Table sx={{}} aria-label="DeepDive-Table ">
         <TableHead>
           <TableRow>

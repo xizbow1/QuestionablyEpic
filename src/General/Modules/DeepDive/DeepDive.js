@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import makeStyles from "@mui/styles/makeStyles";
-import { Button, Dialog, DialogContent, Grid, TextField, FormControl } from "@mui/material";
+import { Button, Dialog, DialogContent, Grid, TextField, FormControl, IconButton } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { getItemDB, getItemProp, getItemIcon } from "../../Engine/ItemUtilities";
+import { getItemDB, getItemProp, getItemIcon, getTranslatedItemName } from "../../Engine/ItemUtilities";
 import DeepDiveTable from "./DeepDiveTable";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 const useStyles = makeStyles(() => ({
   formControl: {
@@ -32,6 +33,8 @@ export default function DeepDive(props) {
   const gameType = useSelector((state) => state.gameType);
   const [open, setOpen] = React.useState(false);
   const currentLanguage = i18n.language;
+  const item = props.item;
+  const translatedItemName = getTranslatedItemName(item.id, currentLanguage, "", gameType);
 
   const fillItems = (slotName, spec) => {
     let newItemList = [];
@@ -42,12 +45,13 @@ export default function DeepDive(props) {
     newItemList.sort((a, b) => (a.label > b.label ? 1 : -1));
     return newItemList;
   };
-
-  const [itemID, setItemID] = useState(props.itemID || "");
-  const [itemName, setItemName] = useState("");
+  // console.log(item);
+  const [itemID, setItemID] = useState(item.id || "");
+  const [itemName, setItemName] = useState(translatedItemName || "");
   const [itemLevel, setItemLevel] = useState("");
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(translatedItemName || "");
   const [itemDropdown, setItemDropdown] = useState(fillItems("", props.player.spec)); // Filled later based on item slot and armor type.
+  const itemQuality = item.getQualityColor();
 
   const [openAuto, setOpenAuto] = React.useState(false);
   const handleOpen = () => {
@@ -85,7 +89,9 @@ export default function DeepDive(props) {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>open</Button>
+      <IconButton sx={{ position: "absolute", right: 5, top: 5, zIndex: 1, padding: 0 }} onClick={handleClickOpen}>
+        <InfoOutlinedIcon fontSize="small" />
+      </IconButton>
       <Dialog maxWidth={"sm"} fullWidth={true} open={open} onClose={handleClose} BackdropProps={{ style: { backgroundColor: "rgba(82,82,82,0.9)" } }}>
         <DialogContent>
           <Grid container spacing={2}>
@@ -101,11 +107,11 @@ export default function DeepDive(props) {
                       borderRadius: 4,
                       borderWidth: "1px",
                       borderStyle: "solid",
-                      //   borderColor: itemQuality,
+                        borderColor: itemQuality,
                     }}
                   />
                 </a>
-                {/* <div className="bottom-right-ItemCards"> {item.level} </div> */}
+                <div className="bottom-right-ItemCards"> {item.level} </div>
               </div>
             </Grid>
             <Grid item xs={11} sm={11} md={6} lg={6} xl={11}>
