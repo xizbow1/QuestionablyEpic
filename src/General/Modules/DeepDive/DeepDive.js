@@ -43,7 +43,7 @@ export default function DeepDive(props) {
     return newItemList;
   };
 
-  const [itemID, setItemID] = useState("");
+  const [itemID, setItemID] = useState(props.itemID || "");
   const [itemName, setItemName] = useState("");
   const [itemLevel, setItemLevel] = useState("");
   const [inputValue, setInputValue] = useState("");
