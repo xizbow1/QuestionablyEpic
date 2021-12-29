@@ -176,8 +176,6 @@ export default function QEMainMenu(props) {
           ))}
         </Grid>
 
-        <DeepDive player={props.player} />
-
         <Typography variant="h5" align="center" style={{ padding: "25px 10px 5px 10px" }} color="primary">
           {t("MainMenu.CharHeader")}
           <Tooltip title={t("MainMenu.CharHelpText")} placement="top-start">
