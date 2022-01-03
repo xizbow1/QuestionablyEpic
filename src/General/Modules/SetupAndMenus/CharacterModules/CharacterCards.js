@@ -106,8 +106,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "0px",
   },
   large: {
-    width: "60px",
-    height: "60px",
+    width: "51px",
+    height: "51px",
   },
   tabRoot: {
     flexGrow: 1,
@@ -348,13 +348,13 @@ export default function CharCards(props) {
       <div style={{ position: "relative" }}>
         {gameType === "Retail" ? (
           <Tooltip title={t("Edit")}>
-            <IconButton style={{ position: "absolute", right: 5, top: 5, zIndex: 1 }} onClick={(e) => handleClickOpen(e)} aria-label="settings" size="small">
+            <IconButton style={{ position: "absolute", right: 0, top: 2, zIndex: 1 }} onClick={(e) => handleClickOpen(e)} aria-label="settings" size="small">
               <SettingsIcon fontSize="small" />
             </IconButton>
           </Tooltip>
         ) : (
           <Tooltip title={t("Delete")}>
-            <IconButton style={{ position: "absolute", right: 5, top: 5, zIndex: 1, color: "red" }} onClick={(e) => handleDelete(e)} aria-label="settings" size="small">
+            <IconButton style={{ position: "absolute", right: 0, top: 5, zIndex: 1, color: "red" }} onClick={(e) => handleDelete(e)} aria-label="settings" size="small">
               <ClearIcon fontSize="small" />
             </IconButton>
           </Tooltip>
@@ -366,7 +366,7 @@ export default function CharCards(props) {
             <Divider orientation="vertical" flexItem />
             <div className={classes.details}>
               <CardContent className={classes.content} style={{ paddingBottom: 0 }}>
-                <Grid container style={{ marginTop: 1 }} spacing={1}>
+                <Grid container style={{ marginTop: 1 }} spacing={0.5}>
                   {/* ------------------------ Character name and Realm ------------------------ */}
                   <Grid item xs={10}>
                     <Typography variant="h6" component="h4" style={{ lineHeight: 1, color: classColoursJS(spec), display: "inline-flex" }}>
