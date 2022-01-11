@@ -1,0 +1,16 @@
+const IDLIGHTOFDAWN = 225311;
+const IDWORDOFGLORY = 85673;
+const oneLoD = Math.round(player.getSingleCast(IDLIGHTOFDAWN, contentType));
+
+export function twopiece(){
+    let LoDBuff = .5;
+    let totalLoDs = 2;
+    const baseHealingInc = processPaladinRawHealing(player.getStatPerc("Crit"));
+    const lightOfDawnCPM = player.getSpellCPM(IDLIGHTOFDAWN, contentType);
+    const lightOfDawnTargets = contentType === "Raid" ? 4.9 : 3.1;
+    let lightOfDawnUptime = Math.min(1, (lightOfDawnCPM * 8) / 60); // Technically doesn't account for the slight possible loss from casting LoD twice in a short period.
+    let BuffedPerMin = 2;
+    let percentHealingToHitTargets = 0.95;
+    bonus_stats.hps = baseHealingInc * (1 + LoDBuff) * totalLoDs * (1 - (lightOfDawnCPM)
+}
+// WIP AS FUCK
