@@ -8,9 +8,9 @@ export function twopiece(){
     const baseHealingInc = processPaladinRawHealing(player.getStatPerc("Crit"));
     const lightOfDawnCPM = player.getSpellCPM(IDLIGHTOFDAWN, contentType);
     const lightOfDawnTargets = contentType === "Raid" ? 4.9 : 3.1;
-    let lightOfDawnUptime = Math.min(1, (lightOfDawnCPM * 8) / 60); // Technically doesn't account for the slight possible loss from casting LoD twice in a short period.
     let BuffedPerMin = 2;
     let percentHealingToHitTargets = 0.95;
-    bonus_stats.hps = baseHealingInc * (1 + LoDBuff) * totalLoDs * (1 - (lightOfDawnCPM)
+    bonus_stats.hps = oneLoD * (1 + LoDBuff) * totalLoDs * (1 - (BuffedPerMin / lightOfDawnCPM) * percentHealingToHitTargets)
 }
 // WIP AS FUCK
+//(yes its stolen from the shadowbreaker formula shut up)
