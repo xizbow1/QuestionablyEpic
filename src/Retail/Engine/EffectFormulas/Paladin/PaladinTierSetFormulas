@@ -1,7 +1,8 @@
+import { getWingsHealingInc, processPaladinRawHealing } from "./PaladinMiscFormulas";
+
 const IDLIGHTOFDAWN = 225311;
 const IDWORDOFGLORY = 85673;
 const oneLoD = Math.round(player.getSingleCast(IDLIGHTOFDAWN, contentType));
-
 export function twopiece(){
     let LoDBuff = .5;
     let extraLoDs = 2;
@@ -10,7 +11,18 @@ export function twopiece(){
     const lightOfDawnTargets = contentType === "Raid" ? 4.9 : 3.1;
     let BuffedPerMin = 2;
     let percentHealingToHitTargets = 0.95;
-    bonus_stats.hps = oneLoD * (1 + LoDBuff) * extraLoDs * (1 - (BuffedPerMin / lightOfDawnCPM) * percentHealingToHitTargets)
+    return oneLoD * (1 + LoDBuff) * extraLoDs * (1 - (BuffedPerMin / lightOfDawnCPM) * percentHealingToHitTargets)
+}
+
+export function fourpiece(){
+    const wingshealing = processPaladinRawHealing;
+    const lightOfDawnCPM = player.getSpellCPM(IDLIGHTOFDAWN, contentType);
+    const cdrpermin = lightOfDawnCPM * 10;
+    return wingshealing * Math.min((.15 + cdrpermin/60), 1)
+    /*.15 is base wings % uptime rounded down a bit because shit happens
+    I divided CDR per minute by 60 to get cdr per second because it made no sense otherwise. 
+    Min'ed it because getting more than 100% wings uptime doesn't make wings better.
+    */
 }
 // WIP AS FUCK
-//(yes its stolen from the shadowbreaker formula shut up)
+//(heavy inspiration from shadowbreaker for 2pc)
