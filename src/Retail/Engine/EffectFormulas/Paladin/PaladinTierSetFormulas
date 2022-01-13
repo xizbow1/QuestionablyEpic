@@ -6,7 +6,6 @@ const oneLoD = Math.round(player.getSingleCast(IDLIGHTOFDAWN, contentType));
 export function twopiece(){
     let LoDBuff = .5;
     let extraLoDs = 2;
-    const baseHealingInc = processPaladinRawHealing(player.getStatPerc("Crit"));
     const lightOfDawnCPM = player.getSpellCPM(IDLIGHTOFDAWN, contentType);
     const lightOfDawnTargets = contentType === "Raid" ? 4.9 : 3.1;
     let BuffedPerMin = 2;
@@ -19,7 +18,8 @@ export function fourpiece(){
     const lightOfDawnCPM = player.getSpellCPM(IDLIGHTOFDAWN, contentType);
     const cdrpermin = lightOfDawnCPM * 10;
     return wingshealing * Math.min((.15 + cdrpermin/60), 1)
-    /*.15 is base wings % uptime rounded down a bit because shit happens
+    /*
+    .15 is base wings % uptime rounded down a bit because shit happens
     I divided CDR per minute by 60 to get cdr per second because it made no sense otherwise. 
     Min'ed it because getting more than 100% wings uptime doesn't make wings better.
     */
