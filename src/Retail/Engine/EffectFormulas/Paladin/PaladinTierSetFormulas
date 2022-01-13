@@ -16,7 +16,8 @@ export function twopiece(){
 export function fourpiece(){
     const wingshealing = processPaladinRawHealing;
     const lightOfDawnCPM = player.getSpellCPM(IDLIGHTOFDAWN, contentType);
-    const cdrpermin = lightOfDawnCPM * 10;
+    const lightOfDawnTargets = contentType === "Raid" ? 4.9 : 3.1;
+    const cdrpermin = lightOfDawnCPM * 2 * lightofDawnTargets;
     return wingshealing * Math.min((.15 + cdrpermin/60), 1)
     /*
     .15 is base wings % uptime rounded down a bit because shit happens
