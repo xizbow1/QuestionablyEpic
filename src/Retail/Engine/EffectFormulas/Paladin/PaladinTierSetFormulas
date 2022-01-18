@@ -14,7 +14,7 @@ export function twopiece(){
 }
 
 export function fourpiece(){
-    const wingshealing = processPaladinRawHealing;
+    const wingshealing = getWingsHealingInc(player.getStatPerc("Crit"));
     const lightOfDawnCPM = player.getSpellCPM(IDLIGHTOFDAWN, contentType);
     const lightOfDawnTargets = contentType === "Raid" ? 4.9 : 3.1;
     const cdrpermin = lightOfDawnCPM * 2 * lightofDawnTargets;
